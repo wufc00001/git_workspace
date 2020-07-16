@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chngc.personScore.dao.CoreUserMapper">
+
+    <resultMap id="BaseResultMap" type="com.chngc.personScore.entity.CoreUser">
+        <!--@Table core_user-->
+        <result property="userId" column="USER_ID" jdbcType="VARCHAR"/>
+        <result property="userType" column="USER_TYPE" jdbcType="VARCHAR"/>
+        <result property="departmentId" column="DEPARTMENT_ID" jdbcType="VARCHAR"/>
+        <result property="brandId" column="BRAND_ID" jdbcType="VARCHAR"/>
+        <result property="realname" column="REALNAME" jdbcType="VARCHAR"/>
+        <result property="title" column="TITLE" jdbcType="VARCHAR"/>
+        <result property="loginName" column="LOGIN_NAME" jdbcType="VARCHAR"/>
+        <result property="password" column="PASSWORD" jdbcType="VARCHAR"/>
+        <result property="pwdQuestion" column="PWD_QUESTION" jdbcType="VARCHAR"/>
+        <result property="pwdAnswer" column="PWD_ANSWER" jdbcType="VARCHAR"/>
+        <result property="email" column="EMAIL" jdbcType="VARCHAR"/>
+        <result property="status" column="STATUS" jdbcType="VARCHAR"/>
+        <result property="creUser" column="CRE_USER" jdbcType="VARCHAR"/>
+        <result property="modUser" column="MOD_USER" jdbcType="VARCHAR"/>
+        <result property="creTime" column="CRE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="modTime" column="MOD_TIME" jdbcType="TIMESTAMP"/>
+        <result property="mobile" column="MOBILE" jdbcType="VARCHAR"/>
+        <result property="isEditEmail" column="IS_EDIT_EMAIL" jdbcType="VARCHAR"/>
+        <result property="isMobileCheck" column="IS_MOBILE_CHECK" jdbcType="VARCHAR"/>
+        <result property="position" column="POSITION" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          USER_ID, USER_TYPE, DEPARTMENT_ID, BRAND_ID, REALNAME, TITLE, LOGIN_NAME, PASSWORD, PWD_QUESTION, PWD_ANSWER, EMAIL, STATUS, CRE_USER, MOD_USER, CRE_TIME, MOD_TIME, MOBILE, IS_EDIT_EMAIL, IS_MOBILE_CHECK, POSITION
+        from ctces_release.core_user
+        where USER_ID = #{userId}
+    </select>
+
+
+</mapper>
